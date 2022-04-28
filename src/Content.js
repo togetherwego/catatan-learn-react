@@ -21,7 +21,15 @@ const Content = () => {
     },
   ]);
 
-
+  // TODO 7
+  const handleCheck = (id) => {
+    console.log(`key: ${id}`);
+    const listItems = items.map((item) =>
+      item.id === id ? { ...item, checked: !item.checked } : item
+    );
+    setItems(listItems);
+    localStorage.setItem("shoppinglist", JSON.stringify(listItems));
+  };
 
   return (
     <main>
@@ -33,10 +41,12 @@ const Content = () => {
               <input
                 type="checkbox"
                 // TODO 7
+                onChange={() => handleCheck(item.id)}
                 checked={item.checked}
               ></input>
               <label
                 style={item.checked ? { textDecoration: "line-through" } : null}
+                onDoubleClick={() => handleCheck(item.id)}
               >
                 {item.item}
               </label>
