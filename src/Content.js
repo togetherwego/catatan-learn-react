@@ -1,43 +1,14 @@
-import { useState } from "react";
 import { FaTrashAlt } from "react-icons/fa";
 
-const Content = () => {
+const Content = ({ items, handleCheck, handleDelete }) => {
   //TODO 2
-  const [items, setItems] = useState([
-    {
-      id: 1,
-      checked: false,
-      item: "cookies",
-    },
-    {
-      id: 2,
-      checked: false,
-      item: "bread",
-    },
-    {
-      id: 3,
-      checked: true,
-      item: "ice cream",
-    },
-  ]);
+  // data already move to app.js
 
-  // TODO 7
-  const handleCheck = (id) => {
-    console.log(`key: ${id}`);
-    const listItems = items.map((item) =>
-      item.id === id ? { ...item, checked: !item.checked } : item
-    );
-    setItems(listItems);
-    localStorage.setItem("shoppinglist", JSON.stringify(listItems));
-  };
+  // // TODO 7
+  // handleCheck function move to app.js
 
-  // todo 9
-  const handleDelete = (id) => {
-    console.log(id);
-    const listItems = items.filter((item) => item.id !== id);
-    setItems(listItems);
-    localStorage.setItem("shoppinglist", JSON.stringify(listItems));
-  };
+  // // todo 9
+  //  handleDelete function move to app.js
 
   return (
     <main>
